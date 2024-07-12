@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "dark": "Escuro",
+    "light": "Claro",
+    "system": "Sistema"
+  },
+  "sidebar": {
+    "home": "Home",
+    "projects": "Projetos",
+    "stack": "Tecnologias"
+  }
+}

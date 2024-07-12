@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "sidebar": {
+    "home": "Home",
+    "projects": "Projects",
+    "stack": "Stack"
+  }
+}
