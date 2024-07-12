@@ -6,7 +6,15 @@
   },
   "sidebar": {
     "home": "Home",
+    "me": "Me",
+    "about": "About me",
     "projects": "Projects",
     "stack": "Stack"
+  },
+  "toasts": {
+    "copyEmail": {
+      "label": "Email copied successfully!",
+      "description": "eduardo.fanis@hotmail.com was copied to clipboard."
+    }
   }
 }

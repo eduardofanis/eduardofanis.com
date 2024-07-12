@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react";
 
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/use-theme";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
