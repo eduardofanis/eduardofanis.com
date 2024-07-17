@@ -9,7 +9,8 @@
     "me": "Me",
     "about": "About me",
     "projects": "Projects",
-    "stack": "Stack"
+    "stack": "Stack",
+    "copyEmail": "Click to copy"
   },
   "toasts": {
     "copyEmail": {

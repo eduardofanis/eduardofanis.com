@@ -13,11 +13,18 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { animated, useTransition } from "@react-spring/web";
+import React from "react";
 import { toast } from "./ui/use-toast";
 
-export default function Sidebar() {
+export default function Sidebar({
+  sidebarRef,
+}: {
+  sidebarRef: React.RefObject<HTMLDivElement>;
+}) {
   const [t] = useTranslation("global");
   const { pathname } = useLocation();
+  const [emailIsHovered, setEmailIsHovered] = React.useState(false);
 
   const menuList = getMenuList(pathname, t);
 
@@ -29,18 +36,40 @@ export default function Sidebar() {
     });
   }
 
+  const avatarIsVisible = pathname !== "/" && pathname !== "/aboutme";
+
+  const avatarRef = React.useRef(null);
+
+  const transition = useTransition(avatarIsVisible, {
+    from: { y: -100 },
+    enter: { x: 0, y: 0, opacity: 1 },
+    leave: { x: 0, y: -100, opacity: 0 },
+    to: { y: 0 },
+  });
+
   return (
-    <div className={cn("w-72 p-5 flex flex-col border-r  h-screen fixed")}>
-      <div className="flex gap-3">
-        <img src="/me.jpg" className="size-12 rounded-md" />
-        <div className="flex flex-col justify-center">
-          <h1 className="font-medium">Eduardo Fanis</h1>
-          <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
-            Front-end Developer
-          </p>
-        </div>
-      </div>
-      <Separator className={cn("my-5")} />
+    <div
+      ref={sidebarRef}
+      className={cn("w-72 p-5 flex flex-col border-r  h-screen fixed")}
+    >
+      {transition((style, isVisible) =>
+        isVisible ? (
+          <div ref={avatarRef}>
+            <animated.div style={style} className="flex gap-3">
+              <img src="/me.jpg" className="size-12 rounded-md" />
+              <div className="flex flex-col justify-center">
+                <h1 className="font-medium">Eduardo Fanis</h1>
+                <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
+                  Front-end Developer
+                </p>
+              </div>
+            </animated.div>
+            <Separator className={cn("my-5")} />
+          </div>
+        ) : (
+          ""
+        )
+      )}
 
       {menuList.map(({ groupLabel, menus }, index) => (
         <div className="flex flex-col" key={index}>
@@ -82,13 +111,15 @@ export default function Sidebar() {
         <Tooltip delayDuration={0}>
           <TooltipTrigger asChild>
             <Button
+              onMouseEnter={() => setEmailIsHovered(true)}
+              onMouseLeave={() => setEmailIsHovered(false)}
               onClick={() => handleCopyEmail()}
               variant={"ghost"}
               className={cn("flex justify-between w-full")}
             >
               <div className={`flex items-center`}>
                 <Mail className={cn("size-4 mr-4")} />
-                Email
+                {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
               </div>
 
               <ClipboardCopy className={cn("size-4")} />

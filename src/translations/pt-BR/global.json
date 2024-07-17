@@ -9,7 +9,8 @@
     "me": "Eu",
     "about": "Sobre mim",
     "projects": "Projetos",
-    "stack": "Tecnologias"
+    "stack": "Tecnologias",
+    "copyEmail": "Clique para copiar"
   },
   "toasts": {
     "copyEmail": {
