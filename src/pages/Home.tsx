@@ -127,7 +127,7 @@ export default function Home() {
           <div className="flex gap-1 w-full mt-4 justify-center">
             {Array.from({ length: count }).map((_, index) => (
               <Button
-                onClick={() => api.scrollTo(index)}
+                onClick={() => api?.scrollTo(index)}
                 variant="outline"
                 key={index}
                 className={`size-4 rounded-full p-1 flex items-center justify-center ${
