@@ -5,6 +5,7 @@ import LanguageSelector from "./components/language-selector";
 import Sidebar from "./components/sidebar";
 import ThemeToggle from "./components/theme-toggle";
 import { cn } from "./lib/utils";
+import Aboutme from "./pages/Aboutme";
 import Home from "./pages/Home";
 import { ThemeProvider } from "./providers/theme-provider";
 
@@ -25,14 +26,17 @@ export default function App() {
       <div className={cn("flex")}>
         <Sidebar sidebarRef={ref} />
         <div
-          className="w-full"
+          className="w-full flex flex-col items-center mt-6"
           style={{
-            marginLeft: sidebarWidth + 300,
-            marginRight: 300,
+            marginLeft: sidebarWidth,
+            marginBottom: 80,
           }}
         >
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Home />} />
+            <Route path="/aboutme" element={<Aboutme />} />
+            <Route path="/stack" element={<Home />} />
           </Routes>
         </div>
 

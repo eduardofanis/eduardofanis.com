@@ -86,7 +86,7 @@ export default function Sidebar({
               className={cn(
                 `${externalLink ? "justify-between" : "justify-start"} ${
                   active && "dark:bg-zinc-800 bg-zinc-100"
-                }`
+                } font-medium`
               )}
               key={i}
               asChild
@@ -115,7 +115,7 @@ export default function Sidebar({
               onMouseLeave={() => setEmailIsHovered(false)}
               onClick={() => handleCopyEmail()}
               variant={"ghost"}
-              className={cn("flex justify-between w-full")}
+              className={cn("flex justify-between w-full font-medium")}
             >
               <div className={`flex items-center`}>
                 <Mail className={cn("size-4 mr-4")} />

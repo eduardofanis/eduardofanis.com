@@ -8,14 +8,14 @@ export function AnimatedContainer({
   children: ReactNode;
 }) {
   const style = useSpring({
-    from: { y: -100 },
+    from: { y: -200 },
     enter: { x: 0, y: 0, opacity: 1 },
-    leave: { x: 0, y: -100, opacity: 0 },
+    leave: { x: 0, y: -200, opacity: 0 },
     to: { y: 0 },
   });
 
   return (
-    <animated.div style={style} {...rest}>
+    <animated.div style={style} {...rest} className="max-w-[800px]">
       {children}
     </animated.div>
   );
