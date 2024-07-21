@@ -1,9 +1,9 @@
 import AnimatedContainer from "@/components/animated-container";
 
-export default function Aboutme() {
+export default function Stack() {
   return (
     <AnimatedContainer className="mt-6">
-      <h1 className="font-medium text-3xl mb-8">About me</h1>
+      <h1>Stack</h1>
     </AnimatedContainer>
   );
 }

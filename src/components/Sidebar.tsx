@@ -1,5 +1,5 @@
 import copy from "copy-to-clipboard";
-import { ArrowUpRight, ClipboardCopy, Mail } from "lucide-react";
+import { ArrowUpRight, Copy, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { getMenuList } from "../lib/menu-list";
@@ -122,7 +122,7 @@ export default function Sidebar({
                 {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
               </div>
 
-              <ClipboardCopy className={cn("size-4")} />
+              <Copy className={cn("size-4")} />
             </Button>
           </TooltipTrigger>
           <TooltipContent align="end">

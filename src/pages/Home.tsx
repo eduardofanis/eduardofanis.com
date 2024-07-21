@@ -56,13 +56,7 @@ export default function Home() {
           </p>
           <div className="mt-2 space-x-2">
             {techs.map((tech, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="rounded-md dark:bg-zinc-900 dark:text-zinc-300 text-zinc-800 py-1 px-3 font-normal"
-              >
-                {tech}
-              </Badge>
+              <Badge key={index}>{tech}</Badge>
             ))}
           </div>
         </div>
@@ -73,7 +67,11 @@ export default function Home() {
             <h2 className="text-xl font-medium">
               💡 {t("home.aboutMe.title")}
             </h2>
-            <Button variant="link" asChild className="text-zinc-700">
+            <Button
+              variant="link"
+              asChild
+              className="dark:text-zinc-700 text-zinc-400"
+            >
               <Link to="/aboutme">
                 see more
                 <ChevronRight className="size-4 ml-2" />
@@ -88,7 +86,11 @@ export default function Home() {
         <div>
           <div className="flex items-center mb-2 justify-between">
             <h2 className="text-xl font-medium">🖥 {t("home.myWork.title")}</h2>
-            <Button variant="link" asChild className="text-zinc-700">
+            <Button
+              variant="link"
+              asChild
+              className="dark:text-zinc-700 text-zinc-400"
+            >
               <Link to="/projects">
                 see more
                 <ChevronRight className="size-4 ml-2" />

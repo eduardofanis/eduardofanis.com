@@ -7,6 +7,8 @@ import ThemeToggle from "./components/theme-toggle";
 import { cn } from "./lib/utils";
 import Aboutme from "./pages/Aboutme";
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import Stack from "./pages/Stack";
 import { ThemeProvider } from "./providers/theme-provider";
 
 export default function App() {
@@ -34,13 +36,13 @@ export default function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/aboutme" element={<Aboutme />} />
-            <Route path="/stack" element={<Home />} />
+            <Route path="/stack" element={<Stack />} />
           </Routes>
         </div>
 
-        <div className={cn("absolute top-5 right-5 flex gap-2")}>
+        <div className={cn("fixed top-5 right-5 flex gap-2")}>
           <ThemeToggle />
           <LanguageSelector />
         </div>
