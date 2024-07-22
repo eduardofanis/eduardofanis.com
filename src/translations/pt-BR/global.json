@@ -29,6 +29,17 @@
     "letsWorkTogether": {
       "title": "Vamos trabalhar juntos",
       "text": "Mande uma mensagem para meu email e juntos vamos transformar suas ideias em lindas UIs."
-    }
+    },
+    "seeMore": "ver mais"
+  },
+  "aboutMe": {
+    "title": "Sobre mim"
+  },
+  "projects": {
+    "title": "Projetos",
+    "description": "Onde as ideias se tornam lindas UIs."
+  },
+  "stack": {
+    "title": "Tecnologias"
   }
 }

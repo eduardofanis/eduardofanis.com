@@ -13,7 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { animated, useTransition } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 import React from "react";
 import { toast } from "./ui/use-toast";
 
@@ -25,6 +25,9 @@ export default function Sidebar({
   const [t] = useTranslation("global");
   const { pathname } = useLocation();
   const [emailIsHovered, setEmailIsHovered] = React.useState(false);
+  const [avatarRef, setAvatarRef] =
+    React.useState<React.RefObject<HTMLDivElement> | null>(null);
+  const [height, setHeight] = React.useState(0);
 
   const menuList = getMenuList(pathname, t);
 
@@ -37,99 +40,135 @@ export default function Sidebar({
   }
 
   const avatarIsVisible = pathname !== "/" && pathname !== "/aboutme";
+  const ref = React.useRef<HTMLDivElement>(null);
 
-  const avatarRef = React.useRef(null);
+  const [style, api] = useSpring(() => ({
+    from: { y: 0 },
+  }));
 
-  const transition = useTransition(avatarIsVisible, {
-    from: { y: -100 },
-    enter: { x: 0, y: 0, opacity: 1 },
-    leave: { x: 0, y: -100, opacity: 0 },
-    to: { y: 0 },
-  });
+  function getDefaultFontSize() {
+    const element = document.createElement("div");
+    element.style.width = "1rem";
+    element.style.display = "none";
+    document.body.append(element);
+
+    const widthMatch = window
+      .getComputedStyle(element)
+      .getPropertyValue("width")
+      .match(/\d+/);
+
+    element.remove();
+
+    if (!widthMatch || widthMatch.length < 1) {
+      return null;
+    }
+
+    const result = Number(widthMatch[0]);
+    return !isNaN(result) ? result : null;
+  }
+
+  React.useEffect(() => {
+    setAvatarRef(ref);
+    setHeight(avatarRef?.current!.clientHeight ?? 0);
+    function handleDeslocate() {
+      api.start({
+        from: {
+          y: avatarIsVisible ? -(height + 1.25 * getDefaultFontSize()!) : 0,
+        },
+        to: {
+          y: avatarIsVisible ? 0 : -(height + 1.25 * getDefaultFontSize()!),
+        },
+      });
+    }
+
+    handleDeslocate();
+  }, [api, avatarIsVisible, avatarRef, height]);
 
   return (
     <div
       ref={sidebarRef}
       className={cn("w-72 p-5 flex flex-col border-r  h-screen fixed")}
     >
-      {transition((style, isVisible) =>
-        isVisible ? (
-          <div ref={avatarRef}>
-            <animated.div style={style} className="flex gap-3">
-              <img src="/me.jpg" className="size-12 rounded-md" />
-              <div className="flex flex-col justify-center">
-                <h1 className="font-medium">Eduardo Fanis</h1>
-                <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
-                  Front-end Developer
-                </p>
-              </div>
-            </animated.div>
-            <Separator className={cn("my-5")} />
+      <animated.div style={style}>
+        <div
+          ref={ref}
+          className={`${
+            !avatarIsVisible ? "opacity-0" : ""
+          } transition-opacity`}
+        >
+          <div className="flex gap-3">
+            <img src="/me.jpg" className="size-12 rounded-md" />
+            <div className="flex flex-col justify-center">
+              <h1 className="font-medium">Eduardo Fanis</h1>
+              <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
+                Front-end Developer
+              </p>
+            </div>
           </div>
-        ) : (
-          ""
-        )
-      )}
-
-      {menuList.map(({ groupLabel, menus }, index) => (
-        <div className="flex flex-col" key={index}>
-          {groupLabel ? (
-            <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
-              {groupLabel}
-            </h3>
-          ) : (
-            <></>
-          )}
-          {menus.map(({ label, icon: Icon, href, active, externalLink }, i) => (
-            <Button
-              variant={"ghost"}
-              className={cn(
-                `${externalLink ? "justify-between" : "justify-start"} ${
-                  active && "dark:bg-zinc-800 bg-zinc-100"
-                } font-medium`
-              )}
-              key={i}
-              asChild
-            >
-              <Link to={href} target={externalLink ? "_blank" : "_self"}>
-                <div className="flex items-center">
-                  <Icon className={cn("size-4 mr-4")} />
-                  {label}
-                </div>
-                {externalLink ? (
-                  <ArrowUpRight className={cn("size-4")} />
-                ) : (
-                  <></>
-                )}
-              </Link>
-            </Button>
-          ))}
+          <Separator className={cn("my-5")} />
         </div>
-      ))}
+        {menuList.map(({ groupLabel, menus }, index) => (
+          <div className="flex flex-col" key={index}>
+            {groupLabel ? (
+              <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
+                {groupLabel}
+              </h3>
+            ) : (
+              <></>
+            )}
+            {menus.map(
+              ({ label, icon: Icon, href, active, externalLink }, i) => (
+                <Button
+                  variant={"ghost"}
+                  className={cn(
+                    `${externalLink ? "justify-between" : "justify-start"} ${
+                      active && "dark:bg-zinc-800 bg-zinc-100"
+                    } font-medium`
+                  )}
+                  key={i}
+                  asChild
+                >
+                  <Link to={href} target={externalLink ? "_blank" : "_self"}>
+                    <div className="flex items-center">
+                      <Icon className={cn("size-4 mr-4")} />
+                      {label}
+                    </div>
+                    {externalLink ? (
+                      <ArrowUpRight className={cn("size-4")} />
+                    ) : (
+                      <></>
+                    )}
+                  </Link>
+                </Button>
+              )
+            )}
+          </div>
+        ))}
 
-      <TooltipProvider>
-        <Tooltip delayDuration={0}>
-          <TooltipTrigger asChild>
-            <Button
-              onMouseEnter={() => setEmailIsHovered(true)}
-              onMouseLeave={() => setEmailIsHovered(false)}
-              onClick={() => handleCopyEmail()}
-              variant={"ghost"}
-              className={cn("flex justify-between w-full font-medium")}
-            >
-              <div className={`flex items-center`}>
-                <Mail className={cn("size-4 mr-4")} />
-                {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
-              </div>
+        <TooltipProvider>
+          <Tooltip delayDuration={0}>
+            <TooltipTrigger asChild>
+              <Button
+                onMouseEnter={() => setEmailIsHovered(true)}
+                onMouseLeave={() => setEmailIsHovered(false)}
+                onClick={() => handleCopyEmail()}
+                variant={"ghost"}
+                className={cn("flex justify-between w-full font-medium")}
+              >
+                <div className={`flex items-center`}>
+                  <Mail className={cn("size-4 mr-4")} />
+                  {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
+                </div>
 
-              <Copy className={cn("size-4")} />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent align="end">
-            <p>eduardo.fanis@hotmail.com</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+                <Copy className={cn("size-4")} />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent align="end">
+              <p>eduardo.fanis@hotmail.com</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </animated.div>
 
       <div className="h-full flex flex-col justify-end ">
         <p className="text-sm dark:text-zinc-700 text-zinc-400">

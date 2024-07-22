@@ -15,7 +15,7 @@ export function AnimatedContainer({
   });
 
   return (
-    <animated.div style={style} {...rest} className="max-w-[800px]">
+    <animated.div style={style} {...rest} className="w-full max-w-[800px]">
       {children}
     </animated.div>
   );

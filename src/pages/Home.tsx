@@ -70,10 +70,10 @@ export default function Home() {
             <Button
               variant="link"
               asChild
-              className="dark:text-zinc-700 text-zinc-400"
+              className="dark:text-zinc-700 text-zinc-400 p-0"
             >
               <Link to="/aboutme">
-                see more
+                {t("home.seeMore")}
                 <ChevronRight className="size-4 ml-2" />
               </Link>
             </Button>
@@ -89,10 +89,10 @@ export default function Home() {
             <Button
               variant="link"
               asChild
-              className="dark:text-zinc-700 text-zinc-400"
+              className="dark:text-zinc-700 text-zinc-400 p-0"
             >
               <Link to="/projects">
-                see more
+                {t("home.seeMore")}
                 <ChevronRight className="size-4 ml-2" />
               </Link>
             </Button>
@@ -107,21 +107,13 @@ export default function Home() {
             }}
           >
             <CarouselContent className="">
-              <CarouselItem className="basis-1/2">
-                <div className="h-60 dark:bg-zinc-900 bg-zinc-100 rounded-md">
-                  1
-                </div>
-              </CarouselItem>
-              <CarouselItem className="basis-1/2">
-                <div className="h-60 dark:bg-zinc-900 bg-zinc-100 rounded-md">
-                  2
-                </div>
-              </CarouselItem>
-              <CarouselItem className="basis-1/2">
-                <div className="h-60 dark:bg-zinc-900 bg-zinc-100 rounded-md">
-                  3
-                </div>
-              </CarouselItem>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <CarouselItem className="basis-1/2" key={index}>
+                  <div className="h-60 dark:bg-zinc-900 cursor-pointer bg-zinc-100 rounded-md">
+                    {index + 1}
+                  </div>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
