@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LanguageSelector from "./components/language-selector";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./components/Sidebar";
 import ThemeToggle from "./components/theme-toggle";
 import { cn } from "./lib/utils";
 import Aboutme from "./pages/Aboutme";

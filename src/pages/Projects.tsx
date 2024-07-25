@@ -11,6 +11,7 @@ const myProjects = [
     name: "gerencie",
     description:
       "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
     image: "gerencie.jpeg",
     url: "https://gerencie.vercel.app",
     source: "https://github.com/eduardofanis/gerencie",
@@ -20,6 +21,7 @@ const myProjects = [
     name: "gerencie",
     description:
       "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
     image: "gerencie.jpeg",
     url: "https://gerencie.vercel.app",
     source: "https://github.com/eduardofanis/gerencie",
@@ -29,6 +31,7 @@ const myProjects = [
     name: "gerencie",
     description:
       "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
     image: "gerencie.jpeg",
     url: "https://gerencie.vercel.app",
     source: "https://github.com/eduardofanis/gerencie",
@@ -38,6 +41,7 @@ const myProjects = [
     name: "gerencie",
     description:
       "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
     image: "gerencie.jpeg",
     url: "https://gerencie.vercel.app",
     source: "https://github.com/eduardofanis/gerencie",
@@ -55,7 +59,7 @@ export default function Projects() {
 
       <div className="grid lg:grid-cols-2 gap-x-4 gap-y-8 mt-8">
         {myProjects.map(
-          ({ name, description, image, url, source, stacks }, index) => (
+          ({ name, description, year, image, url, source, stacks }, index) => (
             <Dialog key={index}>
               <DialogTrigger>
                 <div className="p-3 rounded-md hover:dark:bg-[#0e0e11] hover:scale-105 hover:bg-zinc-50 transition-all text-left">
@@ -65,7 +69,7 @@ export default function Projects() {
                     className="rounded-md  transition-all"
                   />
                   <h2 className="flex justify-between items-center mt-2 text-lg mb-1">
-                    {name} <span className="text-xs text-zinc-500">2024</span>
+                    {name} <span className="text-xs text-zinc-500">{year}</span>
                   </h2>
                   <p className="text-zinc-400 text-sm">{description}</p>
                   <div className="flex gap-2 mt-2">

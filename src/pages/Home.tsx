@@ -9,14 +9,58 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { toast } from "@/components/ui/use-toast";
 import copy from "copy-to-clipboard";
-import { ChevronRight, Copy } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Copy, Github } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const techs = ["ReactJS", "React Native", "TypeScript", "JavaScript", "Figma"];
+
+const myProjects = [
+  {
+    name: "gerencie",
+    description:
+      "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
+    image: "gerencie.jpeg",
+    url: "https://gerencie.vercel.app",
+    source: "https://github.com/eduardofanis/gerencie",
+    stacks: ["ReactJS", "TailwindCSS"],
+  },
+  {
+    name: "gerencie",
+    description:
+      "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
+    image: "gerencie.jpeg",
+    url: "https://gerencie.vercel.app",
+    source: "https://github.com/eduardofanis/gerencie",
+    stacks: ["ReactJS", "TailwindCSS"],
+  },
+  {
+    name: "gerencie",
+    description:
+      "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
+    image: "gerencie.jpeg",
+    url: "https://gerencie.vercel.app",
+    source: "https://github.com/eduardofanis/gerencie",
+    stacks: ["ReactJS", "TailwindCSS"],
+  },
+  {
+    name: "gerencie",
+    description:
+      "Web app to manage costumers & money operations called gerencie.",
+    year: "2024",
+    image: "gerencie.jpeg",
+    url: "https://gerencie.vercel.app",
+    source: "https://github.com/eduardofanis/gerencie",
+    stacks: ["ReactJS", "TailwindCSS"],
+  },
+];
 
 export default function Home() {
   const [api, setApi] = React.useState<CarouselApi>();
@@ -106,19 +150,68 @@ export default function Home() {
               loop: true,
             }}
           >
-            <CarouselContent className="">
-              {Array.from({ length: 3 }).map((_, index) => (
-                <CarouselItem className="basis-1/2" key={index}>
-                  <div className="h-60 dark:bg-zinc-900 cursor-pointer bg-zinc-100 rounded-md">
-                    {index + 1}
-                  </div>
-                </CarouselItem>
-              ))}
+            <CarouselContent>
+              {myProjects.map(
+                (
+                  { description, image, name, year, source, stacks, url },
+                  index
+                ) => (
+                  <CarouselItem className="lg:basis-1/2 basis-auto" key={index}>
+                    <Dialog>
+                      <DialogTrigger>
+                        <div className="h-60 dark:bg-zinc-900 cursor-pointer border bg-zinc-100 rounded-md relative">
+                          <img
+                            src={image}
+                            alt={name}
+                            className="rounded-md object-cover object-left h-full w-auto"
+                          />
+                          <div className="absolute h-full w-full bg-black top-0 opacity-0 hover:opacity-80 transition-opacity rounded-md p-4 flex flex-col text-left">
+                            <h3 className="opacity-100 text-white text-lg font-medium flex justify-between items-center">
+                              {name}
+                              <span className="text-xs text-zinc-500">
+                                {year}
+                              </span>
+                            </h3>
+                            <p className="opacity-100 text-zinc-200 text-sm">
+                              {description}
+                            </p>
+                            <div className="flex gap-2 mt-2">
+                              {stacks.map((stack, index) => (
+                                <Badge key={index}>{stack}</Badge>
+                              ))}
+                            </div>
+                            <div className="w-full flex justify-end gap-2 mt-auto">
+                              <Button variant="secondary" asChild>
+                                <Link to={source} target="_blank">
+                                  <Github className="size-4 mr-2" /> Source
+                                </Link>
+                              </Button>
+                              <Button asChild>
+                                <Link to={url} target="_blank">
+                                  <ArrowUpRight className="size-4 mr-2" />
+                                  Visit
+                                </Link>
+                              </Button>
+                            </div>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="p-10 border-none bg-transparent max-w-[1200px] shadow-none gap-0">
+                        <img
+                          src={image}
+                          alt={name}
+                          className="rounded-md transition-all"
+                        />
+                      </DialogContent>
+                    </Dialog>
+                  </CarouselItem>
+                )
+              )}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
-          <div className="flex gap-1 w-full mt-4 justify-center">
+          <div className="flex gap-1 w-full mt-2 justify-center">
             {Array.from({ length: count }).map((_, index) => (
               <Button
                 onClick={() => api?.scrollTo(index)}

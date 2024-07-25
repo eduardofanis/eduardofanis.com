@@ -33,13 +33,17 @@
     "seeMore": "ver mais"
   },
   "aboutMe": {
-    "title": "Sobre mim"
+    "title": "Sobre mim",
+    "description": "Mais que amigos, friends!",
+    "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nulla ultricies, ultricies lectus vel, sollicitudin velit. Fusce lectus enim, maximus sit amet leo a, porttitor euismod diam. Nunc cursus turpis id lacus dignissim, ac luctus ex dignissim. Cras faucibus fermentum lacus id accumsan. Aliquam mollis nisi vel orci pharetra, ut dignissim augue finibus. Vivamus ac ex sit amet risus pulvinar aliquet. Cras lacus diam, gravida eu libero id, placerat pharetra risus. Aenean congue volutpat nibh, sed feugiat lectus aliquam nec. Suspendisse potenti. Vivamus pulvinar purus lorem, ut euismod nunc eleifend vel."
   },
   "projects": {
     "title": "Projetos",
-    "description": "Onde as ideias se tornam lindas UIs."
+    "description": "Ideias que se tornaram lindas UIs."
   },
   "stack": {
-    "title": "Tecnologias"
+    "title": "Tecnologias",
+    "tools": "Ferramentas",
+    "others": "Outros"
   }
 }
