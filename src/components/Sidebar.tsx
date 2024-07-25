@@ -28,6 +28,16 @@ export default function Sidebar({
   const [avatarRef, setAvatarRef] =
     React.useState<React.RefObject<HTMLDivElement> | null>(null);
   const [height, setHeight] = React.useState(0);
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    console.log(width);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
+
+  const isLargerDisplay = width >= 1280;
 
   const menuList = getMenuList(pathname, t);
 
@@ -87,7 +97,7 @@ export default function Sidebar({
   return (
     <div
       ref={sidebarRef}
-      className={cn("w-72 p-5 flex flex-col border-r  h-screen fixed")}
+      className="w-24 xl:w-72 p-5 flex flex-col border-r  h-screen fixed transition-all overflow-hidden truncate"
     >
       <animated.div style={style}>
         <div
@@ -99,8 +109,8 @@ export default function Sidebar({
           <div className="flex gap-3">
             <img src="/me.jpg" className="size-12 rounded-md" />
             <div className="flex flex-col justify-center">
-              <h1 className="font-medium">Eduardo Fanis</h1>
-              <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
+              <h1 className="font-medium hidden xl:block">Eduardo Fanis</h1>
+              <p className="text-xs dark:text-zinc-400 light:text-zinc-800 hidden xl:block">
                 Front-end Developer
               </p>
             </div>
@@ -110,9 +120,22 @@ export default function Sidebar({
         {menuList.map(({ groupLabel, menus }, index) => (
           <div className="flex flex-col" key={index}>
             {groupLabel ? (
-              <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
-                {groupLabel}
-              </h3>
+              isLargerDisplay ? (
+                <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
+                  {groupLabel}
+                </h3>
+              ) : (
+                <TooltipProvider>
+                  <Tooltip delayDuration={0}>
+                    <TooltipTrigger className="mt-6 mb-2 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
+                      ...
+                    </TooltipTrigger>
+                    <TooltipContent align="start">
+                      <p>{groupLabel}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              )
             ) : (
               <></>
             )}
@@ -131,7 +154,7 @@ export default function Sidebar({
                   <Link to={href} target={externalLink ? "_blank" : "_self"}>
                     <div className="flex items-center">
                       <Icon className={cn("size-4 mr-4")} />
-                      {label}
+                      {isLargerDisplay ? label : ""}
                     </div>
                     {externalLink ? (
                       <ArrowUpRight className={cn("size-4")} />

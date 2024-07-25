@@ -14,6 +14,13 @@ import { ThemeProvider } from "./providers/theme-provider";
 export default function App() {
   const [sidebarRef, setSidebarRef] =
     React.useState<React.RefObject<HTMLDivElement> | null>(null);
+  const [width, setWidth] = React.useState(window.innerWidth);
+
+  React.useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [width]);
 
   const ref = React.useRef<HTMLDivElement>(null);
 
