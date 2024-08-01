@@ -10,8 +10,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { toast } from "@/components/ui/use-toast";
-import copy from "copy-to-clipboard";
+import { handleCopyEmail } from "@/hooks/use-copy-email";
+import { getProjectsList } from "@/lib/projects-list";
 import { ArrowUpRight, ChevronRight, Copy, Github } from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -19,62 +19,13 @@ import { Link } from "react-router-dom";
 
 const techs = ["ReactJS", "React Native", "TypeScript", "JavaScript", "Figma"];
 
-const myProjects = [
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-];
-
 export default function Home() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
   const [t] = useTranslation("global");
 
-  function handleCopyEmail() {
-    copy("eduardo.fanis@hotmail.com");
-    toast({
-      title: t("toasts.copyEmail.label"),
-      description: t("toasts.copyEmail.description"),
-    });
-  }
+  const projects = getProjectsList();
 
   React.useEffect(() => {
     if (!api) {
@@ -114,7 +65,7 @@ export default function Home() {
             <Button
               variant="link"
               asChild
-              className="dark:text-zinc-700 text-zinc-400 p-0"
+              className="dark:text-zinc-700 text-zinc-400 p-0 hover:scale-125 transition-transform"
             >
               <Link to="/aboutme">
                 {t("home.seeMore")}
@@ -133,7 +84,7 @@ export default function Home() {
             <Button
               variant="link"
               asChild
-              className="dark:text-zinc-700 text-zinc-400 p-0"
+              className="dark:text-zinc-700 text-zinc-400 p-0 hover:scale-125 transition-transform"
             >
               <Link to="/projects">
                 {t("home.seeMore")}
@@ -151,7 +102,7 @@ export default function Home() {
             }}
           >
             <CarouselContent>
-              {myProjects.map(
+              {projects.map(
                 (
                   { description, image, name, year, source, stacks, url },
                   index
@@ -231,7 +182,7 @@ export default function Home() {
           <p className="dark:text-zinc-500 text-zinc-500 leading-7 font-text mb-4">
             {t("home.letsWorkTogether.text")}
           </p>
-          <Button onClick={handleCopyEmail} variant="outline">
+          <Button onClick={() => handleCopyEmail(t)} variant="outline">
             <Copy className="size-4 mr-3" />
             eduardo.fanis@hotmail.com
           </Button>

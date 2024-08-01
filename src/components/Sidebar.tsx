@@ -1,4 +1,3 @@
-import copy from "copy-to-clipboard";
 import { ArrowUpRight, Copy, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
@@ -13,9 +12,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { handleCopyEmail } from "@/hooks/use-copy-email";
+import { useDefaultFontSize } from "@/hooks/use-default-fontsize";
+import useWindowDimensions from "@/hooks/use-window-dimensions";
 import { animated, useSpring } from "@react-spring/web";
 import React from "react";
-import { toast } from "./ui/use-toast";
 
 export default function Sidebar({
   sidebarRef,
@@ -28,26 +29,12 @@ export default function Sidebar({
   const [avatarRef, setAvatarRef] =
     React.useState<React.RefObject<HTMLDivElement> | null>(null);
   const [height, setHeight] = React.useState(0);
-  const [width, setWidth] = React.useState(window.innerWidth);
 
-  React.useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    console.log(width);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [width]);
+  const { width } = useWindowDimensions();
 
   const isLargerDisplay = width >= 1280;
 
   const menuList = getMenuList(pathname, t);
-
-  function handleCopyEmail() {
-    copy("eduardo.fanis@hotmail.com");
-    toast({
-      title: t("toasts.copyEmail.label"),
-      description: t("toasts.copyEmail.description"),
-    });
-  }
 
   const avatarIsVisible = pathname !== "/" && pathname !== "/aboutme";
   const ref = React.useRef<HTMLDivElement>(null);
@@ -56,26 +43,7 @@ export default function Sidebar({
     from: { y: 0 },
   }));
 
-  function getDefaultFontSize() {
-    const element = document.createElement("div");
-    element.style.width = "1rem";
-    element.style.display = "none";
-    document.body.append(element);
-
-    const widthMatch = window
-      .getComputedStyle(element)
-      .getPropertyValue("width")
-      .match(/\d+/);
-
-    element.remove();
-
-    if (!widthMatch || widthMatch.length < 1) {
-      return null;
-    }
-
-    const result = Number(widthMatch[0]);
-    return !isNaN(result) ? result : null;
-  }
+  const defaultFontSize = useDefaultFontSize() ?? 16;
 
   React.useEffect(() => {
     setAvatarRef(ref);
@@ -83,21 +51,21 @@ export default function Sidebar({
     function handleDeslocate() {
       api.start({
         from: {
-          y: avatarIsVisible ? -(height + 1.25 * getDefaultFontSize()!) : 0,
+          y: avatarIsVisible ? -(height + 1.25 * defaultFontSize) : 0,
         },
         to: {
-          y: avatarIsVisible ? 0 : -(height + 1.25 * getDefaultFontSize()!),
+          y: avatarIsVisible ? 0 : -(height + 1.25 * defaultFontSize),
         },
       });
     }
 
     handleDeslocate();
-  }, [api, avatarIsVisible, avatarRef, height]);
+  }, [api, avatarIsVisible, avatarRef, height, defaultFontSize]);
 
   return (
     <div
       ref={sidebarRef}
-      className="w-24 xl:w-72 p-5 flex flex-col border-r  h-screen fixed transition-all overflow-hidden truncate"
+      className="lg:w-[88px] xl:w-72 xl:fixed p-5 xl:flex hidden flex-col border-r h-screen fixed transition-all overflow-hidden truncate"
     >
       <animated.div style={style}>
         <div
@@ -127,8 +95,10 @@ export default function Sidebar({
               ) : (
                 <TooltipProvider>
                   <Tooltip delayDuration={0}>
-                    <TooltipTrigger className="mt-6 mb-2 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
-                      ...
+                    <TooltipTrigger className="mt-6 mb-2 ml-4" asChild>
+                      <h3 className="font-medium dark:text-zinc-300 text-zinc-700 text-sm">
+                        ...
+                      </h3>
                     </TooltipTrigger>
                     <TooltipContent align="start">
                       <p>{groupLabel}</p>
@@ -152,11 +122,11 @@ export default function Sidebar({
                   asChild
                 >
                   <Link to={href} target={externalLink ? "_blank" : "_self"}>
-                    <div className="flex items-center">
-                      <Icon className={cn("size-4 mr-4")} />
+                    <div className="flex items-center gap-4">
+                      <Icon className={cn("size-4")} />
                       {isLargerDisplay ? label : ""}
                     </div>
-                    {externalLink ? (
+                    {externalLink && isLargerDisplay ? (
                       <ArrowUpRight className={cn("size-4")} />
                     ) : (
                       <></>
@@ -174,16 +144,19 @@ export default function Sidebar({
               <Button
                 onMouseEnter={() => setEmailIsHovered(true)}
                 onMouseLeave={() => setEmailIsHovered(false)}
-                onClick={() => handleCopyEmail()}
+                onClick={() => handleCopyEmail(t)}
                 variant={"ghost"}
                 className={cn("flex justify-between w-full font-medium")}
               >
-                <div className={`flex items-center`}>
-                  <Mail className={cn("size-4 mr-4")} />
-                  {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
+                <div className={`flex items-center gap-4`}>
+                  <Mail className={cn("size-4")} />
+                  {isLargerDisplay
+                    ? emailIsHovered
+                      ? t("sidebar.copyEmail")
+                      : "Email"
+                    : ""}
                 </div>
-
-                <Copy className={cn("size-4")} />
+                {isLargerDisplay ? <Copy className={cn("size-4")} /> : <></>}
               </Button>
             </TooltipTrigger>
             <TooltipContent align="end">
@@ -194,9 +167,13 @@ export default function Sidebar({
       </animated.div>
 
       <div className="h-full flex flex-col justify-end ">
-        <p className="text-sm dark:text-zinc-700 text-zinc-400">
-          © 2024 Eduardo Fanis
-        </p>
+        {isLargerDisplay ? (
+          <p className="text-sm dark:text-zinc-700 text-zinc-400">
+            © 2024 Eduardo Fanis
+          </p>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

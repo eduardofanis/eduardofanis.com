@@ -2,55 +2,15 @@ import AnimatedContainer from "@/components/animated-container";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { getProjectsList } from "@/lib/projects-list";
 import { ArrowUpRight, Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const myProjects = [
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-  {
-    name: "gerencie",
-    description:
-      "Web app to manage costumers & money operations called gerencie.",
-    year: "2024",
-    image: "gerencie.jpeg",
-    url: "https://gerencie.vercel.app",
-    source: "https://github.com/eduardofanis/gerencie",
-    stacks: ["ReactJS", "TailwindCSS"],
-  },
-];
-
 export default function Projects() {
   const [t] = useTranslation("global");
+
+  const projects = getProjectsList();
 
   return (
     <AnimatedContainer className="mt-6">
@@ -58,7 +18,7 @@ export default function Projects() {
       <p className="text-zinc-500 text-sm">{t("projects.description")}</p>
 
       <div className="grid lg:grid-cols-2 gap-x-4 gap-y-8 mt-8">
-        {myProjects.map(
+        {projects.map(
           ({ name, description, year, image, url, source, stacks }, index) => (
             <Dialog key={index}>
               <DialogTrigger>
@@ -77,7 +37,7 @@ export default function Projects() {
                       <Badge key={index}>{stack}</Badge>
                     ))}
                   </div>
-                  <div className="w-full flex justify-end gap-2 mt-4">
+                  <div className="w-full flex justify-end gap-2 mt-4 z-50">
                     <Button variant="ghost" asChild>
                       <Link to={source} target="_blank">
                         <Github className="size-4 mr-2" /> Source
