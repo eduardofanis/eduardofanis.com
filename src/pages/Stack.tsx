@@ -15,7 +15,7 @@ export default function Stack() {
       <div className="space-y-8 mt-8">
         <div>
           <h2 className="text-xl mb-2 font-medium">Front-end</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
             {stackList
               .filter((stack) => stack.type == "frontend")
               .map(({ name, icon: Icon }, index) => (
@@ -37,7 +37,7 @@ export default function Stack() {
 
         <div>
           <h2 className="text-xl mb-2 font-medium">Back-end</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
             {stackList
               .filter((stack) => stack.type == "backend")
               .map(({ name, icon: Icon }, index) => (
@@ -54,7 +54,7 @@ export default function Stack() {
 
         <div>
           <h2 className="text-xl mb-2 font-medium">UI Design</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
             {stackList
               .filter((stack) => stack.type == "ui")
               .map(({ name, icon: Icon }, index) => (
@@ -71,7 +71,7 @@ export default function Stack() {
 
         <div>
           <h2 className="text-xl mb-2 font-medium">{t("stack.tools")}</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
             {stackList
               .filter((stack) => stack.type == "tools")
               .map(({ name, icon: Icon }, index) => (
@@ -88,7 +88,7 @@ export default function Stack() {
 
         <div>
           <h2 className="text-xl mb-2 font-medium">{t("stack.others")}</h2>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
             {stackList
               .filter((stack) => stack.type == "others")
               .map(({ name, icon: Icon }, index) => (

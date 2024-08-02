@@ -12,7 +12,13 @@ import {
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { handleCopyEmail } from "@/hooks/use-copy-email";
 import { getProjectsList } from "@/lib/projects-list";
-import { ArrowUpRight, ChevronRight, Copy, Github } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronRight,
+  Copy,
+  Download,
+  Github,
+} from "lucide-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -182,10 +188,17 @@ export default function Home() {
           <p className="dark:text-zinc-500 text-zinc-500 leading-7 font-text mb-4">
             {t("home.letsWorkTogether.text")}
           </p>
-          <Button onClick={() => handleCopyEmail(t)} variant="outline">
-            <Copy className="size-4 mr-3" />
-            eduardo.fanis@hotmail.com
-          </Button>
+          <div className="flex gap-3 items-center">
+            <Button onClick={() => handleCopyEmail(t)} variant="outline">
+              <Copy className="size-4 mr-3" />
+              eduardo.fanis@hotmail.com
+            </Button>
+            or
+            <Button variant="secondary">
+              <Download className="size-4 mr-3" />
+              Download CV
+            </Button>
+          </div>
         </div>
       </div>
     </AnimatedContainer>

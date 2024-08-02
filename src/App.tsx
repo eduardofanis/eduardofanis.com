@@ -1,10 +1,10 @@
 import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/header";
 import LanguageSelector from "./components/language-selector";
 import Sidebar from "./components/sidebar";
 import ThemeToggle from "./components/theme-toggle";
-import { cn } from "./lib/utils";
 import Aboutme from "./pages/Aboutme";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -13,6 +13,8 @@ import { ThemeProvider } from "./providers/theme-provider";
 
 export default function App() {
   const [sidebarRef, setSidebarRef] =
+    React.useState<React.RefObject<HTMLDivElement> | null>(null);
+  const [headerRef, setHeaderRef] =
     React.useState<React.RefObject<HTMLDivElement> | null>(null);
   const [width, setWidth] = React.useState(window.innerWidth);
 
@@ -23,33 +25,40 @@ export default function App() {
   }, [width]);
 
   const ref = React.useRef<HTMLDivElement>(null);
+  const ref2 = React.useRef<HTMLDivElement>(null);
 
   const sidebarWidth = sidebarRef?.current?.clientWidth || 0;
+  const headerHeight = headerRef?.current?.clientHeight || 0;
 
   React.useEffect(() => {
     setSidebarRef(ref);
+    setHeaderRef(ref2);
   }, []);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="theme">
-      <div className={cn("flex")}>
-        <Sidebar sidebarRef={ref} />
+      <Sidebar sidebarRef={ref} />
+      <div className="w-full flex flex-col items-center">
+        <Header headerRef={ref2} />
         <div
-          className="w-full flex flex-col items-center mt-6"
+          className="flex flex-col items-center"
           style={{
             marginLeft: sidebarWidth,
+            marginTop: headerHeight,
             marginBottom: 80,
           }}
         >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/aboutme" element={<Aboutme />} />
-            <Route path="/stack" element={<Stack />} />
-          </Routes>
+          <main className="px-5 max-w-[800px]">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/aboutme" element={<Aboutme />} />
+              <Route path="/stack" element={<Stack />} />
+            </Routes>
+          </main>
         </div>
 
-        <div className={cn("fixed top-5 right-5 flex gap-2")}>
+        <div className="fixed hidden top-5 right-5 xl:flex gap-2">
           <ThemeToggle />
           <LanguageSelector />
         </div>

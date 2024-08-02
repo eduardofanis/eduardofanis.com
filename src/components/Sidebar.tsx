@@ -20,8 +20,10 @@ import React from "react";
 
 export default function Sidebar({
   sidebarRef,
+  onHeader,
 }: {
-  sidebarRef: React.RefObject<HTMLDivElement>;
+  sidebarRef?: React.RefObject<HTMLDivElement>;
+  onHeader?: boolean;
 }) {
   const [t] = useTranslation("global");
   const { pathname } = useLocation();
@@ -63,9 +65,13 @@ export default function Sidebar({
   }, [api, avatarIsVisible, avatarRef, height, defaultFontSize]);
 
   return (
-    <div
+    <aside
       ref={sidebarRef}
-      className="lg:w-[88px] xl:w-72 xl:fixed p-5 xl:flex hidden flex-col border-r h-screen fixed transition-all overflow-hidden truncate"
+      className={`p-5 ${
+        !onHeader
+          ? "xl:flex flex-col fixed w-72 hidden border-r"
+          : "w-full flex flex-col"
+      } h-screen transition-all overflow-hidden truncate`}
     >
       <animated.div style={style}>
         <div
@@ -77,8 +83,8 @@ export default function Sidebar({
           <div className="flex gap-3">
             <img src="/me.jpg" className="size-12 rounded-md" />
             <div className="flex flex-col justify-center">
-              <h1 className="font-medium hidden xl:block">Eduardo Fanis</h1>
-              <p className="text-xs dark:text-zinc-400 light:text-zinc-800 hidden xl:block">
+              <h1 className="font-medium">Eduardo Fanis</h1>
+              <p className="text-xs dark:text-zinc-400 light:text-zinc-800">
                 Front-end Developer
               </p>
             </div>
@@ -88,27 +94,13 @@ export default function Sidebar({
         {menuList.map(({ groupLabel, menus }, index) => (
           <div className="flex flex-col" key={index}>
             {groupLabel ? (
-              isLargerDisplay ? (
-                <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
-                  {groupLabel}
-                </h3>
-              ) : (
-                <TooltipProvider>
-                  <Tooltip delayDuration={0}>
-                    <TooltipTrigger className="mt-6 mb-2 ml-4" asChild>
-                      <h3 className="font-medium dark:text-zinc-300 text-zinc-700 text-sm">
-                        ...
-                      </h3>
-                    </TooltipTrigger>
-                    <TooltipContent align="start">
-                      <p>{groupLabel}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              )
+              <h3 className="mt-6 mb-2 ml-4 font-medium dark:text-zinc-300 text-zinc-700 text-sm">
+                {groupLabel}
+              </h3>
             ) : (
               <></>
             )}
+
             {menus.map(
               ({ label, icon: Icon, href, active, externalLink }, i) => (
                 <Button
@@ -124,9 +116,10 @@ export default function Sidebar({
                   <Link to={href} target={externalLink ? "_blank" : "_self"}>
                     <div className="flex items-center gap-4">
                       <Icon className={cn("size-4")} />
-                      {isLargerDisplay ? label : ""}
+                      {label}
                     </div>
-                    {externalLink && isLargerDisplay ? (
+
+                    {externalLink ? (
                       <ArrowUpRight className={cn("size-4")} />
                     ) : (
                       <></>
@@ -150,13 +143,9 @@ export default function Sidebar({
               >
                 <div className={`flex items-center gap-4`}>
                   <Mail className={cn("size-4")} />
-                  {isLargerDisplay
-                    ? emailIsHovered
-                      ? t("sidebar.copyEmail")
-                      : "Email"
-                    : ""}
+                  {emailIsHovered ? t("sidebar.copyEmail") : "Email"}
                 </div>
-                {isLargerDisplay ? <Copy className={cn("size-4")} /> : <></>}
+                <Copy className={cn("size-4")} />
               </Button>
             </TooltipTrigger>
             <TooltipContent align="end">
@@ -175,6 +164,6 @@ export default function Sidebar({
           <></>
         )}
       </div>
-    </div>
+    </aside>
   );
 }
