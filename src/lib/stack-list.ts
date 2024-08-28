@@ -1,5 +1,6 @@
 import { ZodIcon } from "@/components/zod-icon";
 import {
+  DockerOriginal,
   ExpressOriginal,
   FastifyPlain,
   FigmaOriginal,
@@ -16,10 +17,10 @@ import {
   PrismaOriginal,
   ReactOriginal,
   SqliteOriginal,
+  TailwindcssOriginal,
   TypescriptOriginal,
   VercelOriginal,
   VscodeOriginal,
-  VuejsOriginal,
 } from "devicons-react";
 import { Github } from "lucide-react";
 
@@ -53,13 +54,13 @@ export function getStackList(): Stack[] {
       type: "frontend",
     },
     {
-      name: "VueJS",
-      icon: VuejsOriginal,
+      name: "NextJS",
+      icon: NextjsOriginal,
       type: "frontend",
     },
     {
-      name: "NextJS",
-      icon: NextjsOriginal,
+      name: "TailwindCSS",
+      icon: TailwindcssOriginal,
       type: "frontend",
     },
     {
@@ -120,6 +121,11 @@ export function getStackList(): Stack[] {
     {
       name: "GitHub",
       icon: Github as DevIcon,
+      type: "tools",
+    },
+    {
+      name: "Docker",
+      icon: DockerOriginal,
       type: "tools",
     },
     {

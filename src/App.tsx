@@ -38,7 +38,7 @@ export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="theme">
       <Sidebar sidebarRef={ref} />
-      <div className="w-full flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <Header headerRef={ref2} />
         <div
           className="flex flex-col items-center"

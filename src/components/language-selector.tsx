@@ -30,10 +30,10 @@ export default function LanguageSelector() {
       <SelectContent align="end">
         <SelectGroup>
           <SelectItem value="en">
-            <img src="/eua_flag.svg" className={cn("w-6")} />
+            <img src="/us.svg" className={cn("w-6")} />
           </SelectItem>
           <SelectItem value="ptBR">
-            <img src="/brasil_flag.svg" className={cn("w-6")} />
+            <img src="/br.svg" className={cn("w-6")} />
           </SelectItem>
         </SelectGroup>
       </SelectContent>

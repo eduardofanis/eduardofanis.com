@@ -26,7 +26,9 @@ export default function Stack() {
                   <Icon
                     size={32}
                     className={`${
-                      name == "React Native" ? "brightness-75 saturate-150" : ""
+                      name == "React Native"
+                        ? "brightness-[60%] saturate-200"
+                        : ""
                     }`}
                   />
                   {name}

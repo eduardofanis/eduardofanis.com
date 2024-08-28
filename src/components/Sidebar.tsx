@@ -67,7 +67,7 @@ export default function Sidebar({
   return (
     <aside
       ref={sidebarRef}
-      className={`p-5 ${
+      className={`p-5 bg-background ${
         !onHeader
           ? "xl:flex flex-col fixed w-72 hidden border-r"
           : "w-full flex flex-col"
