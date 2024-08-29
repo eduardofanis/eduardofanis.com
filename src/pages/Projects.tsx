@@ -25,7 +25,7 @@ export default function Projects() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [t] = useTranslation("global");
 
-  const projects = getProjectsList();
+  const projects = getProjectsList(t);
 
   React.useEffect(() => {
     if (!api) {
@@ -51,7 +51,7 @@ export default function Projects() {
                     <img
                       src={images[0]}
                       alt={name}
-                      className="rounded-md  transition-all hover:scale-[102%]"
+                      className="rounded-md transition-all h-[200px] w-auto object-cover hover:scale-[102%]"
                     />
                   </DialogTrigger>
                   <DialogContent

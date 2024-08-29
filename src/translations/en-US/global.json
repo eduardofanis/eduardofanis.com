@@ -49,5 +49,13 @@
     "description": "Technologies and tools that I have experience with.",
     "tools": "Tools",
     "others": "Others"
+  },
+  "projectsDescriptions": {
+    "gerencie": "Web app to manage costumers & money operations.",
+    "dogs": "A social media like Instagram, but for dogs.",
+    "bikcraft": "An ecommerce of bikes.",
+    "nextchat": "Text messaging app made in NextJS.",
+    "nextchatapi": "Text messaging NodeJS API with MongoDB for my project Next Chat.",
+    "notionpomodoro": "A Pomodoro app to use with Notion Embed URL"
   }
 }

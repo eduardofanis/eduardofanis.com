@@ -35,10 +35,10 @@ export default function Home() {
   const [api, setApi] = React.useState<CarouselApi>();
   const [api2, setApi2] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [, setCount] = React.useState(0);
   const [t] = useTranslation("global");
 
-  const projects = getProjectsList();
+  const projects = getProjectsList(t);
 
   React.useEffect(() => {
     if (!api) {
@@ -64,8 +64,8 @@ export default function Home() {
       <div className="flex gap-3">
         <img src="me.jpg" alt="Eduardo Fanis" className="size-24 rounded-md" />
         <div className="">
-          <h1 className="text-4xl font-semibold">Eduardo Fanis</h1>
-          <p className="dark:text-zinc-400 text-zinc-700">
+          <h1 className="md:text-4xl text-2xl font-semibold">Eduardo Fanis</h1>
+          <p className="dark:text-zinc-400 sm:text-base text-sm text-zinc-700">
             Front-end Developer & UI Designer
           </p>
           <div className="mt-2 flex gap-2 flex-wrap">
@@ -78,7 +78,7 @@ export default function Home() {
       <div className="space-y-10 mt-16">
         <div>
           <div className="flex items-center mb-2 justify-between">
-            <h2 className="text-xl font-medium">
+            <h2 className="md:text-xl text-base font-medium">
               💡 {t("home.aboutMe.title")}
             </h2>
             <Button
@@ -99,7 +99,9 @@ export default function Home() {
         </div>
         <div>
           <div className="flex items-center mb-2 justify-between">
-            <h2 className="text-xl font-medium">🖥 {t("home.myWork.title")}</h2>
+            <h2 className="md:text-xl text-base font-medium">
+              🖥 {t("home.myWork.title")}
+            </h2>
             <Button
               variant="link"
               asChild
@@ -206,7 +208,7 @@ export default function Home() {
               )}
             </CarouselContent>
             <div className="flex gap-1 w-full mt-4 justify-center relative">
-              {Array.from({ length: count }).map((_, index) => (
+              {Array.from({ length: projects.length }).map((_, index) => (
                 <Button
                   onClick={() => api?.scrollTo(index)}
                   variant="outline"
@@ -222,7 +224,7 @@ export default function Home() {
           </Carousel>
         </div>
         <div>
-          <h2 className="text-xl font-medium mb-2">
+          <h2 className="md:text-xl text-base font-medium mb-2">
             🤝 {t("home.letsWorkTogether.title")}
           </h2>
           <p className="dark:text-zinc-500 text-zinc-500 leading-7 font-text mb-4">

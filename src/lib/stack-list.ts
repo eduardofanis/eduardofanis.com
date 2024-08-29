@@ -1,3 +1,4 @@
+import { RenderIcon } from "@/components/render-icon";
 import { ZodIcon } from "@/components/zod-icon";
 import {
   DockerOriginal,
@@ -10,6 +11,7 @@ import {
   GitOriginal,
   JavascriptOriginal,
   LinuxOriginal,
+  MongodbOriginal,
   NeovimOriginal,
   NextjsOriginal,
   NodejsOriginal,
@@ -99,6 +101,11 @@ export function getStackList(): Stack[] {
       type: "backend",
     },
     {
+      name: "MongoDB",
+      icon: MongodbOriginal,
+      type: "backend",
+    },
+    {
       name: "Figma",
       icon: FigmaOriginal,
       type: "ui",
@@ -156,6 +163,11 @@ export function getStackList(): Stack[] {
     {
       name: "Zod",
       icon: ZodIcon as DevIcon,
+      type: "tools",
+    },
+    {
+      name: "Render",
+      icon: RenderIcon as DevIcon,
       type: "tools",
     },
   ];
