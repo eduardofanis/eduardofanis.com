@@ -4,15 +4,18 @@ import ReactDOM from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import "./index.css";
 
+import { getUserLocale } from "get-user-locale";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import global_en from "./translations/en/global.json";
+import global_en from "./translations/en-US/global.json";
 import global_ptBR from "./translations/pt-BR/global.json";
 
-const language = localStorage.getItem("language");
+const language = localStorage.getItem("language")
+  ? localStorage.getItem("language")
+  : getUserLocale();
 
 const defaultLanguage =
-  language == "en" ? "en" : language == "ptBR" ? "ptBR" : "en";
+  language == "en-US" ? "en-US" : language == "pt-BR" ? "pt-BR" : "en-US";
 
 i18next.init({
   interpolation: {
@@ -20,10 +23,10 @@ i18next.init({
   },
   lng: defaultLanguage,
   resources: {
-    en: {
+    "en-US": {
       global: global_en,
     },
-    ptBR: {
+    "pt-BR": {
       global: global_ptBR,
     },
   },

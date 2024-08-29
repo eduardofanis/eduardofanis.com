@@ -54,7 +54,10 @@ export default function Projects() {
                       className="rounded-md  transition-all hover:scale-[102%]"
                     />
                   </DialogTrigger>
-                  <DialogContent className="py-12 px-0 border-none bg-transparent max-w-full shadow-none gap-0">
+                  <DialogContent
+                    aria-describedby=""
+                    className="py-12 px-0 border-none bg-transparent max-w-full shadow-none gap-0"
+                  >
                     <DialogTitle></DialogTitle>
                     <Carousel
                       className="w-full max-w-x"

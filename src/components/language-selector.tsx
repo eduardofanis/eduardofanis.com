@@ -1,3 +1,4 @@
+import { getUserLocale } from "get-user-locale";
 import { useTranslation } from "react-i18next";
 import { cn } from "../lib/utils";
 import {
@@ -17,10 +18,12 @@ export default function LanguageSelector() {
     i18n.changeLanguage(lang);
   }
 
-  const language = localStorage.getItem("language");
+  const language = localStorage.getItem("language")
+    ? localStorage.getItem("language")
+    : getUserLocale();
 
   const defaultLanguage =
-    language == "en" ? "en" : language == "ptBR" ? "ptBR" : "en";
+    language == "en-US" ? "en-US" : language == "pt-BR" ? "pt-BR" : "en-US";
 
   return (
     <Select onValueChange={handleChangeLanguage} defaultValue={defaultLanguage}>
@@ -29,10 +32,10 @@ export default function LanguageSelector() {
       </SelectTrigger>
       <SelectContent align="end">
         <SelectGroup>
-          <SelectItem value="en">
+          <SelectItem value="en-US">
             <img src="/us.svg" className={cn("w-6")} />
           </SelectItem>
-          <SelectItem value="ptBR">
+          <SelectItem value="pt-BR">
             <img src="/br.svg" className={cn("w-6")} />
           </SelectItem>
         </SelectGroup>

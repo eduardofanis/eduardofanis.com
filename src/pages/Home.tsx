@@ -153,7 +153,10 @@ export default function Home() {
                                 <ZoomIn className="size-4" />
                               </Button>
                             </DialogTrigger>
-                            <DialogContent className="py-12 px-0 border-none bg-transparent max-w-full shadow-none gap-0">
+                            <DialogContent
+                              aria-describedby=""
+                              className="py-12 px-0 border-none bg-transparent max-w-full shadow-none gap-0"
+                            >
                               <DialogTitle></DialogTitle>
                               <Carousel
                                 className="w-full max-w-x"
@@ -177,6 +180,10 @@ export default function Home() {
                                     </CarouselItem>
                                   ))}
                                 </CarouselContent>
+                                <div className="absolute right-[50%] left-[50%] -bottom-20 h-[100px]">
+                                  <CarouselPrevious />
+                                  <CarouselNext />
+                                </div>
                               </Carousel>
                             </DialogContent>
                           </Dialog>

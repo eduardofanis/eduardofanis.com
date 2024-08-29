@@ -1,4 +1,9 @@
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import LanguageSelector from "./language-selector";
 import Sidebar from "./sidebar";
@@ -18,7 +23,8 @@ export default function Header({
         <SheetTrigger>
           <Menu className="size-6" />
         </SheetTrigger>
-        <SheetContent side="left" className="p-0 w-72">
+        <SheetContent aria-describedby="" side="left" className="p-0 w-72">
+          <SheetTitle></SheetTitle>
           <Sidebar onHeader={true} />
         </SheetContent>
       </Sheet>
