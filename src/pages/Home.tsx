@@ -68,7 +68,7 @@ export default function Home() {
           <p className="dark:text-zinc-400 text-zinc-700">
             Front-end Developer & UI Designer
           </p>
-          <div className="mt-2 space-x-2">
+          <div className="mt-2 flex gap-2 flex-wrap">
             {techs.map((tech, index) => (
               <Badge key={index}>{tech}</Badge>
             ))}
@@ -126,7 +126,7 @@ export default function Home() {
                   { description, images, name, year, source, stacks, url },
                   index
                 ) => (
-                  <CarouselItem className="lg:basis-1/2 basis-auto" key={index}>
+                  <CarouselItem className="basis-auto" key={index}>
                     <div className="h-60 dark:bg-zinc-900 border bg-zinc-100 rounded-md relative">
                       <img
                         src={images[0]}
@@ -168,21 +168,17 @@ export default function Home() {
                                 <CarouselContent>
                                   {images.map((url, index) => (
                                     <CarouselItem
-                                      className=" basis-auto"
+                                      className="basis-auto"
                                       key={index}
                                     >
                                       <img
                                         src={url}
                                         alt={name}
-                                        className="rounded-md transition-all w-auto lg:max-h-[600px] md:max-h-[400px] max-h-[300px]"
+                                        className="rounded-md transition-all w-auto xl:max-h-[600px] lg:max-h-[400px] max-h-[300px]"
                                       />
                                     </CarouselItem>
                                   ))}
                                 </CarouselContent>
-                                <div className="absolute right-[50%] left-[50%] -bottom-20 h-[100px]">
-                                  <CarouselPrevious />
-                                  <CarouselNext />
-                                </div>
                               </Carousel>
                             </DialogContent>
                           </Dialog>
@@ -204,21 +200,21 @@ export default function Home() {
                 )
               )}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <div className="flex gap-1 w-full mt-4 justify-center relative">
+              {Array.from({ length: count }).map((_, index) => (
+                <Button
+                  onClick={() => api?.scrollTo(index)}
+                  variant="outline"
+                  key={index}
+                  className={`size-4 rounded-full p-1 flex items-center justify-center ${
+                    index + 1 == current && "dark:bg-zinc-700 bg-zinc-300"
+                  }`}
+                />
+              ))}
+              <CarouselPrevious className="absolute left-0 top-2" />
+              <CarouselNext className="absolute right-0 top-2" />
+            </div>
           </Carousel>
-          <div className="flex gap-1 w-full mt-2 justify-center">
-            {Array.from({ length: count }).map((_, index) => (
-              <Button
-                onClick={() => api?.scrollTo(index)}
-                variant="outline"
-                key={index}
-                className={`size-4 rounded-full p-1 flex items-center justify-center ${
-                  index + 1 == current && "dark:bg-zinc-700 bg-zinc-300"
-                }`}
-              />
-            ))}
-          </div>
         </div>
         <div>
           <h2 className="text-xl font-medium mb-2">
@@ -227,7 +223,7 @@ export default function Home() {
           <p className="dark:text-zinc-500 text-zinc-500 leading-7 font-text mb-4">
             {t("home.letsWorkTogether.text")}
           </p>
-          <div className="flex gap-3 items-center">
+          <div className="flex flex-wrap gap-3 items-center">
             <Button onClick={() => handleCopyEmail(t)} variant="outline">
               <Copy className="size-4 mr-3" />
               eduardo.fanis@hotmail.com
