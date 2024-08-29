@@ -141,11 +141,9 @@ export default function Home() {
                         <p className="opacity-100 text-zinc-200 text-sm">
                           {description}
                         </p>
-                        <div className="space-y-2 mt-2">
+                        <div className="flex flex-wrap gap-2 mt-2">
                           {stacks.map((stack, index) => (
-                            <Badge className="mr-2" key={index}>
-                              {stack}
-                            </Badge>
+                            <Badge key={index}>{stack}</Badge>
                           ))}
                         </div>
                         <div className="w-full flex justify-end gap-2 mt-auto">
