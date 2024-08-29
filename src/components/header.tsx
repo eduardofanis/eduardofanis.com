@@ -17,13 +17,17 @@ export default function Header({
   return (
     <header
       ref={headerRef}
-      className="xl:hidden items-center fixed p-4 flex w-full max-w-[800px] justify-between bg-background z-[999999]"
+      className="xl:hidden items-center fixed p-4 flex w-full max-w-[800px] justify-between bg-background z-50"
     >
       <Sheet>
         <SheetTrigger>
           <Menu className="size-6" />
         </SheetTrigger>
-        <SheetContent aria-describedby="" side="left" className="p-0 w-72">
+        <SheetContent
+          aria-describedby=""
+          side="left"
+          className="p-0 w-72 z-[99999999]"
+        >
           <SheetTitle></SheetTitle>
           <Sidebar onHeader={true} />
         </SheetContent>

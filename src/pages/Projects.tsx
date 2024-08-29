@@ -43,7 +43,7 @@ export default function Projects() {
           ({ name, description, year, images, url, source, stacks }, index) => (
             <div
               key={index}
-              className="p-3 rounded-md hover:dark:bg-[#0e0e11] hover:scale-105 hover:bg-zinc-50 transition-all text-left flex flex-col justify-between"
+              className="p-3 rounded-md hover:dark:bg-[#0e0e11] hover:scale-105 hover:bg-zinc-50 transition-all text-left flex flex-col justify-between z-10"
             >
               <div>
                 <Dialog>
