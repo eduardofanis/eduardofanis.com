@@ -17,7 +17,7 @@ export default function Header({
   return (
     <header
       ref={headerRef}
-      className="xl:hidden items-center fixed p-4 flex w-full max-w-[800px] justify-between bg-background z-50"
+      className="xl:hidden items-center fixed p-4 flex w-full max-w-[800px] justify-between bg-background z-[999999]"
     >
       <Sheet>
         <SheetTrigger>

@@ -38,7 +38,7 @@ export default function Projects() {
       <h1 className="font-medium text-3xl">{t("projects.title")}</h1>
       <p className="text-zinc-500 text-sm">{t("projects.description")}</p>
 
-      <div className="grid lg:grid-cols-2 gap-x-4 gap-y-8 mt-8">
+      <div className="grid sm:grid-cols-2 gap-x-4 gap-y-8 mt-8">
         {projects.map(
           ({ name, description, year, images, url, source, stacks }, index) => (
             <div
@@ -51,7 +51,7 @@ export default function Projects() {
                     <img
                       src={images[0]}
                       alt={name}
-                      className="rounded-md transition-all h-[200px] w-auto object-cover hover:scale-[102%]"
+                      className="rounded-md transition-all h-[200px] w-full object-cover hover:scale-[102%]"
                     />
                   </DialogTrigger>
                   <DialogContent
