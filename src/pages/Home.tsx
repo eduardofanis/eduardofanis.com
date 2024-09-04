@@ -236,9 +236,11 @@ export default function Home() {
               eduardo.fanis@hotmail.com
             </Button>
             {t("home.or")}
-            <Button variant="secondary">
-              <Download className="size-4 mr-3" />
-              {t("home.download")} CV
+            <Button asChild variant="secondary">
+              <Link to="/CV Eduardo Fanis.pdf" target="_blank" download>
+                <Download className="size-4 mr-3" />
+                {t("home.download")} CV
+              </Link>
             </Button>
           </div>
         </div>
