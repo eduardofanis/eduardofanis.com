@@ -11,11 +11,17 @@ export default function Aboutme() {
       <div className="grid sm:grid-cols-3 gap-4 mt-8">
         <img src="me.jpg" alt="Eduardo Fanis" className="rounded-md" />
         <div className="sm:col-span-2">
-          <h2 className="text-lg font-medium mb-1">Im Eduardo Fanis Lima</h2>
+          <h2 className="text-lg font-medium mb-1">{t("aboutMe.myName")}</h2>
           <p className="text-zinc-600 dark:text-zinc-400 leading-7 font-text">
             {t("aboutMe.text1")}
           </p>
         </div>
+        <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
+          {t("aboutMe.text2")}
+        </p>
+        <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
+          {t("aboutMe.text3")}
+        </p>
       </div>
     </AnimatedContainer>
   );

@@ -22,7 +22,7 @@
   "home": {
     "aboutMe": {
       "title": "About me",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nulla ultricies, ultricies lectus vel, sollicitudin velit. Fusce lectus enim, maximus sit amet leo a, porttitor euismod diam. Nunc cursus turpis id lacus dignissim, ac luctus ex dignissim. Cras faucibus fermentum lacus id accumsan. Aliquam mollis nisi vel orci pharetra, ut dignissim augue finibus. Vivamus ac ex sit amet risus pulvinar aliquet. Cras lacus diam, gravida eu libero id, placerat pharetra risus. Aenean congue volutpat nibh, sed feugiat lectus aliquam nec. Suspendisse potenti. Vivamus pulvinar purus lorem, ut euismod nunc eleifend vel."
+      "text": "My name is Eduardo Fanis Lima, I am currently 18 years old and live in Curitiba, PR, Brazil. I am a self-taught technology enthusiast since I was 10 years old. I always enjoyed inventing things and learning in practive, and at an early age, I already knew how to assemble and maintain computers. Today, I am a Front-end Developer and UI Designer, sketching my ideas and turning them into reality."
     },
     "myWork": {
       "title": "Check out my work"
@@ -38,7 +38,11 @@
   "aboutMe": {
     "title": "About me",
     "description": "Who am I?",
-    "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et nulla ultricies, ultricies lectus vel, sollicitudin velit. Fusce lectus enim, maximus sit amet leo a, porttitor euismod diam. Nunc cursus turpis id lacus dignissim, ac luctus ex dignissim. Cras faucibus fermentum lacus id accumsan. Aliquam mollis nisi vel orci pharetra, ut dignissim augue finibus. Vivamus ac ex sit amet risus pulvinar aliquet. Cras lacus diam, gravida eu libero id, placerat pharetra risus. Aenean congue volutpat nibh, sed feugiat lectus aliquam nec. Suspendisse potenti. Vivamus pulvinar purus lorem, ut euismod nunc eleifend vel."
+    "myName": "My name is Eduardo Fanis Lima,",
+    "text1": "I am currently 18 years old and live in Curitiba, PR, Brazil. I am a self-taught technology enthusiast since I was 10 years old. I always enjoyed inventing things and learning in practive, and at an early age, I already knew how to assemble and maintain computers. Today, I am a Front-end Developer and UI Designer, sketching my ideas and turning them into reality.",
+    "text2": "I have a passion for classic cars, sports cars, and sport motorcycles. My dream car is a 1990s Porsche 911. I enjoy working out and practicing combat sports (boxing and kickboxing) in my free time.",
+    "text3": "I dove into the world of programming about two years ago. I always knew I wanted to work with technology. When I started writing my first lines of code and saw the things I could build myself, I was fascinated and knew that this was what I wanted to do.",
+    "experience": "Profissional Experience"
   },
   "projects": {
     "title": "Projects",
