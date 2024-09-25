@@ -4,8 +4,10 @@ import ReactDOM from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import "./index.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import { getUserLocale } from "get-user-locale";
 import { BrowserRouter } from "react-router-dom";
+
 import App from "./App";
 import global_en from "./translations/en-US/global.json";
 import global_ptBR from "./translations/pt-BR/global.json";
@@ -36,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <I18nextProvider i18n={i18next}>
+        <Analytics />
         <App />
       </I18nextProvider>
     </BrowserRouter>
