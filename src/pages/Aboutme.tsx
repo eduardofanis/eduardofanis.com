@@ -12,16 +12,27 @@ export default function Aboutme() {
         <img src="me.jpg" alt="Eduardo Fanis" className="rounded-md" />
         <div className="sm:col-span-2">
           <h2 className="text-lg font-medium mb-1">{t("aboutMe.myName")}</h2>
-          <p className="text-zinc-600 dark:text-zinc-400 leading-7 font-text">
+          <p className="text-zinc-600 dark:text-zinc-400 leading-7 font-text mb-1">
             {t("aboutMe.text1")}
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-7 font-text">
+            {t("aboutMe.text2")}
           </p>
         </div>
         <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
-          {t("aboutMe.text2")}
-        </p>
-        <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
           {t("aboutMe.text3")}
         </p>
+        <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
+          {t("aboutMe.text4")}
+        </p>
+        <div className="sm:col-span-3">
+          <h2 className="text-lg font-medium mb-1">
+            {t("aboutMe.experience")}
+          </h2>
+        </div>
+        <div className="sm:col-span-3">
+          <h2 className="text-lg font-medium mb-1">{t("aboutMe.courses")}</h2>
+        </div>
       </div>
     </AnimatedContainer>
   );

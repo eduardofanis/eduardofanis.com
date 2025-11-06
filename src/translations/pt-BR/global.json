@@ -21,7 +21,7 @@
   "home": {
     "aboutMe": {
       "title": "Sobre mim",
-      "text": "Sobre mim..."
+      "text": "Desenvolvedor Front-end e UI Designer, apaixonado por criar interfaces bonitas, funcionais e intuitivas. Tenho experiência com tecnologias como ReactJS, TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify e Flutter. Estou sempre em busca de novos desafios e acredito que o sucesso na área vem da combinação entre boas habilidades técnicas, criatividade e a vontade constante de aprender e evoluir."
     },
     "myWork": {
       "title": "Conheça meu trabalho"
@@ -37,11 +37,13 @@
   "aboutMe": {
     "title": "Sobre mim",
     "description": "Quem sou eu?",
-    "myName": "Me chamo Eduardo Fanis Lima,",
-    "text1": "Texto 1",
-    "text2": "Texto 2",
-    "text3": "Texto 3",
-    "experience": "Experiência Profissional"
+    "myName": "Eduardo Fanis Lima",
+    "text1": "Desenvolvedor Front-end apaixonado por criar interfaces bonitas e funcionais.",
+    "text2": "Atualmente tenho 20 anos e estou sempre em busca de novos desafios e aprendizados na área de desenvolvimento web. Atualmente estou focado em aprimorar as novas tecnologias do ecossistema ReactJS.",
+    "text3": "Possuo experiência com diversas tecnologias e ferramentas, incluindo TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify, entre outras. Por um tempo estudei desenvolvimento mobile com Flutter e React Native na qual desenvolvi meu app chamado Activy.",
+    "text4": "Acredito que a chave para o sucesso como desenvolvedor está na combinação de habilidades técnicas sólidas, criatividade e uma paixão constante por aprender e evoluir. Sou apaixonado em criar interfaces que não apenas atendam às necessidades dos usuários, mas que também proporcionem uma experiência agradável e intuitiva.",
+    "experience": "Experiência Profissional",
+    "courses": "Formações, Cursos e Certificados"
   },
   "projects": {
     "title": "Projetos",
