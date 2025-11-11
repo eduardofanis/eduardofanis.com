@@ -1,19 +1,25 @@
-import { TFunction } from "i18next";
-
 type Job = {
-  name: string;
-  description: string;
+  role_EN: string;
+  role_PT: string;
+  business: string;
+  description_EN: string;
+  description_PT: string;
   yearIn: string;
   yearOut: string;
 };
 
-export function getJobList(t: TFunction): Job[] {
+export function getJobList(): Job[] {
   return [
     {
-      name: "gerencie",
-      description: t("projectsDescriptions.gerencie"),
+      role_EN: "Automotive Mechanic",
+      role_PT: "Mecânico Automotivo",
+      business: "R.A Lima",
+      description_EN:
+        "Entrei como ajudante de mecânico, mas rapidamente me desenvolvi e comecei a atuar na montagem e desmontagem de motores.",
+      description_PT:
+        "Entrei como ajudante de mecânico, mas rapidamente me desenvolvi e comecei a atuar na montagem e desmontagem de motores.",
       yearIn: "2024",
-      yearOut: "2024",
+      yearOut: "2025",
     },
   ];
 }
