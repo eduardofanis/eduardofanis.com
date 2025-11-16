@@ -1,12 +1,15 @@
 import AnimatedContainer from "@/components/animated-container";
+import { getCourseList } from "@/lib/course-list";
 import { getJobList } from "@/lib/job-list";
 import { getUserLocale } from "get-user-locale";
+import { ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function Aboutme() {
   const [t] = useTranslation("global");
 
   const jobs = getJobList();
+  const courses = getCourseList();
 
   const language = localStorage.getItem("language")
     ? localStorage.getItem("language")
@@ -37,38 +40,64 @@ export default function Aboutme() {
           <h2 className="text-lg font-medium mb-4">
             {t("aboutMe.experience")}
           </h2>
-          {jobs.map(
-            (
-              {
-                role_EN,
-                role_PT,
-                business,
-                description_EN,
-                description_PT,
-                yearIn,
-                yearOut,
-              },
-              index
-            ) => (
-              <div key={index} className="mb-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-zinc-200">
-                    {language === "en-US" ? role_EN : role_PT} | {business}
-                  </h3>
-                  <span className="text-sm text-zinc-500 mb-1">
-                    ({yearIn}-{yearOut})
-                  </span>
-                </div>
+          <ul className="ml-5 list-disc space-y-2">
+            {jobs.map(
+              (
+                {
+                  role_EN,
+                  role_PT,
+                  business,
+                  description_EN,
+                  description_PT,
+                  yearIn,
+                  yearOut,
+                },
+                index
+              ) => (
+                <li key={index} className="mb-4">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-zinc-800 dark:text-zinc-200">
+                      {language === "en-US" ? role_EN : role_PT} | {business}
+                    </h3>
+                    <span className="text-sm text-zinc-500 mb-1">
+                      ({yearIn}-{yearOut})
+                    </span>
+                  </div>
 
-                <p className="text-zinc-600 dark:text-zinc-400 leading-6 font-text">
-                  {language === "en-US" ? description_EN : description_PT}
-                </p>
-              </div>
-            )
-          )}
+                  <p className="text-zinc-600 dark:text-zinc-400 leading-6 font-text">
+                    {language === "en-US" ? description_EN : description_PT}
+                  </p>
+                </li>
+              )
+            )}
+          </ul>
         </div>
         <div className="sm:col-span-3">
           <h2 className="text-lg font-medium mb-1">{t("aboutMe.courses")}</h2>
+          <ul className="list-disc ml-5 mt-4 space-y-2">
+            {courses.map((course, index) => (
+              <li key={index} className="text-zinc-800 dark:text-zinc-200">
+                {course.link ? (
+                  <a
+                    href={course.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-500"
+                  >
+                    {language === "en-US" ? course.name_EN : course.name_PT}
+                    <ExternalLink
+                      className="inline-block ml-2 mb-1"
+                      size={14}
+                    />
+                  </a>
+                ) : language === "en-US" ? (
+                  course.name_EN
+                ) : (
+                  course.name_PT
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </AnimatedContainer>
