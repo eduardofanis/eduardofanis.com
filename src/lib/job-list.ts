@@ -15,9 +15,9 @@ export function getJobList(): Job[] {
       role_PT: "Mecânico Automotivo",
       business: "R.A Lima",
       description_EN:
-        "Worked on engine maintenance, assembly and disassembly, and parts procurement and search.",
+        "Worked on engine maintenance, assembly and disassembly, electrical diagnostics, and parts procurement.",
       description_PT:
-        "Trabalhei na manutenção de motores, montagem e desmontagem, e na compra e busca de peças.",
+        "Trabalhei na manutenção de motores, montagem e desmontagem, diagnósticos elétricos e na compra e busca de peças.",
       yearIn: "2024",
       yearOut: "2025",
     },
@@ -28,7 +28,7 @@ export function getJobList(): Job[] {
       description_EN:
         "Collected food and other goods from establishments and delivered them to buyers.",
       description_PT:
-        "Coletava alimentos e outras mercadorias em estabelecimentos e entregava aos compradores.",
+        "Coletava comida e outras mercadorias em estabelecimentos e entregava aos compradores.",
       yearIn: "2023",
       yearOut: "2023",
     },

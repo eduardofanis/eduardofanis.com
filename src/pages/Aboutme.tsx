@@ -95,6 +95,10 @@ export default function Aboutme() {
                 ) : (
                   course.name_PT
                 )}
+                <span className="text-sm text-zinc-500 ml-2">
+                  {course.institution}
+                  {course.year ? `, ${course.year}` : ""}
+                </span>
               </li>
             ))}
           </ul>

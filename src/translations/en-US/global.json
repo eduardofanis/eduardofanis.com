@@ -22,7 +22,7 @@
   "home": {
     "aboutMe": {
       "title": "About me",
-      "text": "About me..."
+      "text": "Front-end Developer and UI Designer, passionate about creating beautiful, functional, and intuitive interfaces. I have experience with technologies such as ReactJS, TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify, NextJS, etc. I am always looking for new challenges and believe that success in the field comes from a combination of good technical skills, creativity, and a constant desire to learn and evolve."
     },
     "myWork": {
       "title": "Check out my work"
@@ -39,10 +39,12 @@
     "title": "About me",
     "description": "Who am I?",
     "myName": "My name is Eduardo Fanis Lima,",
-    "text1": "Text 1.",
-    "text2": "Text 2.",
-    "text3": "Text 3.",
-    "experience": "Profissional Experience"
+    "text1": "Front-end developer passionate about creating beautiful and functional interfaces.",
+    "text2": "I am currently 20 years old and constantly seeking new challenges and learning opportunities in the web development field. Right now, I’m focused on improving and learning new technologies within the ReactJS ecosystem.",
+    "text3": "I have experience with various technologies and tools, including TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify, among others. For a while, I also studied mobile development with Flutter and React Native, during which I built some apps.",
+    "text4": "I believe that the key to success as a developer lies in combining solid technical skills, creativity, and a continuous passion for learning and evolving. I’m passionate about creating interfaces that not only meet user needs but also provide a pleasant and intuitive experience.",
+    "experience": "Profissional Experience",
+    "courses": "Education, Courses and Certificates"
   },
   "projects": {
     "title": "Projects",

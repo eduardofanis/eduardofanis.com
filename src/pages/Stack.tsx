@@ -87,23 +87,6 @@ export default function Stack() {
               ))}
           </div>
         </div>
-
-        <div>
-          <h2 className="text-xl mb-2 font-medium">{t("stack.others")}</h2>
-          <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-2">
-            {stackList
-              .filter((stack) => stack.type == "others")
-              .map(({ name, icon: Icon }, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 items-center text-lg p-4 dark:bg-zinc-900 hover:dark:bg-zinc-800 hover:bg-zinc-100 bg-zinc-50 rounded-md dark:text-zinc-200 text-zinc-800 transition-colors"
-                >
-                  <Icon size={32} />
-                  {name}
-                </div>
-              ))}
-          </div>
-        </div>
       </div>
     </AnimatedContainer>
   );
