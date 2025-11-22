@@ -22,7 +22,7 @@
   "home": {
     "aboutMe": {
       "title": "About me",
-      "text": "Front-end Developer and UI Designer, passionate about creating beautiful, functional, and intuitive interfaces. I have experience with technologies such as ReactJS, TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify, NextJS, etc. I am always looking for new challenges and believe that success in the field comes from a combination of good technical skills, creativity, and a constant desire to learn and evolve."
+      "text": "Front-end Developer & UI Designer passionate about technology, programming, and creating beautiful, functional, and intuitive interfaces. I’m 20 years old and always seeking new challenges, with a strong focus on the ReactJS ecosystem and continuous improvement of skills such as React, TypeScript, and other web development tools. From an early age, my interest in computers led me into the world of programming, and today I strive to maintain a healthy balance between career and personal life, dedicating my free time to the automotive world and physical activities. I believe that success comes from a combination of solid technical skills, creativity, and a constant drive to learn and evolve."
     },
     "myWork": {
       "title": "Check out my work"
@@ -41,8 +41,9 @@
     "myName": "My name is Eduardo Fanis Lima,",
     "text1": "Front-end developer passionate about creating beautiful and functional interfaces.",
     "text2": "I am currently 20 years old and constantly seeking new challenges and learning opportunities in the web development field. Right now, I’m focused on improving and learning new technologies within the ReactJS ecosystem.",
-    "text3": "I have experience with various technologies and tools, including TypeScript, TailwindCSS, Git, SQLite, Docker, Fastify, among others. For a while, I also studied mobile development with Flutter and React Native, during which I built some apps.",
-    "text4": "I believe that the key to success as a developer lies in combining solid technical skills, creativity, and a continuous passion for learning and evolving. I’m passionate about creating interfaces that not only meet user needs but also provide a pleasant and intuitive experience.",
+    "text3": "I have always been enthusiastic about technology and programming. From an early age, I was interested in computers and how they work, which led me to explore the world of web development. Over the years, I have developed my skills in various technologies and frameworks, with a special focus on ReactJS and TypeScript.",
+    "text4": "I have a passion for the automotive world and for engaging in physical activities during my free time. I believe that maintaining a balance between work and personal life is essential for both professional and personal growth.",
+    "text5": "I believe that the key to success as a developer lies in combining solid technical skills, creativity, and a continuous passion for learning and evolving. I’m passionate about creating interfaces that not only meet user needs but also provide a pleasant and intuitive experience.",
     "experience": "Profissional Experience",
     "courses": "Education, Courses and Certificates"
   },

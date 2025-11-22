@@ -36,6 +36,9 @@ export default function Aboutme() {
         <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
           {t("aboutMe.text4")}
         </p>
+        <p className="text-zinc-600 dark:text-zinc-400 leading-7 sm:col-span-3 font-text">
+          {t("aboutMe.text5")}
+        </p>
         <div className="sm:col-span-3 mt-8">
           <h2 className="text-lg font-medium mb-4">
             {t("aboutMe.experience")}
