@@ -15,9 +15,9 @@ export function getJobList(): Job[] {
       role_PT: "Mecânico Automotivo",
       business: "R.A Lima",
       description_EN:
-        "Worked on engine maintenance, assembly and disassembly, electrical diagnostics, and parts procurement.",
+        "Worked on engine maintenance, assembly and disassembly, electrical diagnostics, and parts logistics.",
       description_PT:
-        "Trabalhei na manutenção de motores, montagem e desmontagem, diagnósticos elétricos e na compra e busca de peças.",
+        "Trabalhei na manutenção de motores, montagem e desmontagem, diagnósticos elétricos e na logística de peças.",
       yearIn: "2024",
       yearOut: "2025",
     },
@@ -26,9 +26,9 @@ export function getJobList(): Job[] {
       role_PT: "Entregador de Aplicativo",
       business: "IFood / Uber",
       description_EN:
-        "Collected food and other goods from establishments and delivered them to buyers.",
+        "Collected goods from establishments and delivered them to customers.",
       description_PT:
-        "Coletava comida e outras mercadorias em estabelecimentos e entregava aos compradores.",
+        "Coletava mercadorias em estabelecimentos e entregava aos clientes.",
       yearIn: "2023",
       yearOut: "2023",
     },
@@ -37,9 +37,9 @@ export function getJobList(): Job[] {
       role_PT: "Operador de Caixa",
       business: "Skina Gula",
       description_EN:
-        "Operated the cash register making sales, managed the inventory control system, and checked received orders.",
+        "Operated the cash register making sales, managed the inventory control system, checked and received orders.",
       description_PT:
-        "Operava o caixa fazendo as vendas, gerenciava o sistema de controle de estoque e verificava recebia as encomendas.",
+        "Operava o caixa fazendo as vendas, gerenciava o sistema de controle de estoque, verificava e recebia mercadorias.",
       yearIn: "2020",
       yearOut: "2021",
     },
