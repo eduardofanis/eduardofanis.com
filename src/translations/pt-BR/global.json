@@ -21,7 +21,7 @@
   "home": {
     "aboutMe": {
       "title": "Sobre mim",
-      "text": "Desenvolvedor Front-end & UI Designer apaixonado por tecnologia, programação e criação de interfaces bonitas, funcionais e intuitivas. Tenho 20 anos e estou sempre em busca de novos desafios, focado especialmente no ecossistema ReactJS e no aprimoramento contínuo de habilidades como React, TypeScript e outras ferramentas do desenvolvimento web. Desde cedo, meu interesse por computadores me levou ao mundo da programação, e hoje tento manter um equilíbrio saudável entre carreira e vida pessoal, dedicando meu tempo livre a minha paixão no mundo automotivo e à prática de atividades físicas. Acredito que o sucesso vem da combinação entre habilidades técnicas, criatividade e a vontade constante de evoluir."
+      "text": "Desenvolvedor Front-end & UI Designer apaixonado por tecnologia, programação e criação de interfaces bonitas, funcionais e intuitivas. Tenho 20 anos, atualmente curso Engenharia de Software e sempre em busca de novos desafios, focado especialmente no ecossistema ReactJS e no aprimoramento de habilidades como React, TypeScript, UI e outras ferramentas do desenvolvimento web. Acredito que o sucesso vem da combinação entre habilidades técnicas, criatividade e a vontade constante de evoluir."
     },
     "myWork": {
       "title": "Conheça meu trabalho"
@@ -38,8 +38,8 @@
     "title": "Sobre mim",
     "description": "Quem sou eu?",
     "myName": "Eduardo Fanis Lima",
-    "text1": "Desenvolvedor Front-end apaixonado por criar interfaces bonitas e funcionais.",
-    "text2": "Atualmente tenho 20 anos e estou em busca de novos desafios e aprendizados na área de desenvolvimento web. No momento estou focado em aprimorar e aprender as novas tecnologias do ecossistema ReactJS.",
+    "text1": "Desenvolvedor Front-end e UI Designer apaixonado por criar interfaces bonitas e funcionais.",
+    "text2": "Tenho 20 anos e atualmente cursando Engenharia de Software, e sempre em busca de novos desafios e aprendizados na área de desenvolvimento web. No momento estou focado em aprimorar e aprender as novas tecnologias do ecossistema ReactJS.",
     "text3": "Sempre fui entusiasta por tecnologia e programação. Desde cedo, me interessei por computadores e como eles funcionam, o que me levou a explorar o mundo do desenvolvimento web. Ao longo dos anos, desenvolvi minhas habilidades em diversas tecnologias e frameworks, com um foco especial em ReactJS e TypeScript.",
     "text4": "Tenho uma paixão pelo mundo automotivo e de praticar atividades físicas no meu tempo livre. Acredito que manter um equilíbrio entre trabalho e vida pessoal é essencial para o crescimento profissional e pessoal.",
     "text5": "Acredito que a chave para o sucesso como profissional está na combinação de habilidades técnicas sólidas, criatividade e uma paixão constante por aprender e evoluir. Sou apaixonado em criar interfaces que não apenas atendam às necessidades dos usuários, mas que também proporcionem uma experiência agradável e intuitiva.",
