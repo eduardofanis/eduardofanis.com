@@ -2,8 +2,12 @@ type Job = {
   role_EN: string;
   role_PT: string;
   business: string;
-  description_EN: string;
-  description_PT: string;
+  subject1_EN: string;
+  subject1_PT: string;
+  subject2_EN: string;
+  subject2_PT: string;
+  subject3_EN?: string;
+  subject3_PT?: string;
   yearIn: string;
   yearOut: string;
 };
@@ -14,21 +18,24 @@ export function getJobList(): Job[] {
       role_EN: "Automotive Mechanic",
       role_PT: "Mecânico Automotivo",
       business: "R.A Lima",
-      description_EN:
-        "Worked on engine maintenance, assembly and disassembly, electrical diagnostics, and parts logistics.",
-      description_PT:
-        "Trabalhei na manutenção de motores, montagem e desmontagem, diagnósticos elétricos e na logística de peças.",
+      subject1_EN: "Diagnosed and resolved electrical and mechanical issues.",
+      subject1_PT:
+        "Diagnóstico e resolução de problemas elétricos e mecânicos.",
+      subject2_EN: "Organized, cleaned, proactive and adaptable.",
+      subject2_PT: "Organização, limpeza, proatividade e adaptabilidade.",
+      subject3_EN: "Communication, teamwork, and customer service.",
+      subject3_PT: "Comunicação, trabalho em equipe e atendimento ao cliente.",
       yearIn: "2024",
       yearOut: "2025",
     },
     {
-      role_EN: "App Delivery Driver",
-      role_PT: "Entregador de Aplicativo",
+      role_EN: "App Delivery",
+      role_PT: "Entregas por Aplicativo",
       business: "IFood / Uber",
-      description_EN:
-        "Collected goods from establishments and delivered them to customers.",
-      description_PT:
-        "Coletava mercadorias em estabelecimentos e entregava aos clientes.",
+      subject1_EN: "Autonomy, responsibility, and punctuality.",
+      subject1_PT: "Autonomia, responsabilidade e pontualidade.",
+      subject2_EN: "Communication and customer service.",
+      subject2_PT: "Comunicação e atendimento ao cliente.",
       yearIn: "2023",
       yearOut: "2023",
     },
@@ -36,10 +43,11 @@ export function getJobList(): Job[] {
       role_EN: "Cashier",
       role_PT: "Operador de Caixa",
       business: "Skina Gula",
-      description_EN:
-        "Operated the cash register making sales, managed the inventory control system, checked and received orders.",
-      description_PT:
-        "Operava o caixa fazendo as vendas, gerenciava o sistema de controle de estoque, verificava e recebia mercadorias.",
+      subject1_EN: "Cash flow control, use of POS system, finances.",
+      subject1_PT: "Controle de fluxo de caixa, uso de sistema PDV, finanças.",
+      subject2_EN: "Clear and polite communication, customer service, agility.",
+      subject2_PT:
+        "Comunicação clara e educada, atendimento ao cliente, agilidade.",
       yearIn: "2020",
       yearOut: "2021",
     },

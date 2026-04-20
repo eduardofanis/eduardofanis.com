@@ -50,12 +50,16 @@ export default function Aboutme() {
                   role_EN,
                   role_PT,
                   business,
-                  description_EN,
-                  description_PT,
+                  subject1_EN,
+                  subject1_PT,
+                  subject2_EN,
+                  subject2_PT,
+                  subject3_EN,
+                  subject3_PT,
                   yearIn,
                   yearOut,
                 },
-                index
+                index,
               ) => (
                 <li key={index} className="mb-4">
                   <div className="flex items-center gap-2 mb-1">
@@ -67,11 +71,21 @@ export default function Aboutme() {
                     </span>
                   </div>
 
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-6 font-text">
-                    {language === "en-US" ? description_EN : description_PT}
-                  </p>
+                  <ul className="text-zinc-600 dark:text-zinc-400 leading-6 font-text">
+                    <li>{language === "en-US" ? subject1_EN : subject1_PT}</li>
+                    {subject2_EN && (
+                      <li>
+                        {language === "en-US" ? subject2_EN : subject2_PT}
+                      </li>
+                    )}
+                    {subject3_EN && (
+                      <li>
+                        {language === "en-US" ? subject3_EN : subject3_PT}
+                      </li>
+                    )}
+                  </ul>
                 </li>
-              )
+              ),
             )}
           </ul>
         </div>
