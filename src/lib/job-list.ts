@@ -26,7 +26,7 @@ export function getJobList(): Job[] {
       subject3_EN: "Communication, teamwork, and customer service.",
       subject3_PT: "Comunicação, trabalho em equipe e atendimento ao cliente.",
       yearIn: "2024",
-      yearOut: "2025",
+      yearOut: "2026",
     },
     {
       role_EN: "App Delivery",
@@ -36,7 +36,7 @@ export function getJobList(): Job[] {
       subject1_PT: "Autonomia, responsabilidade e pontualidade.",
       subject2_EN: "Communication and customer service.",
       subject2_PT: "Comunicação e atendimento ao cliente.",
-      yearIn: "2023",
+      yearIn: "2022",
       yearOut: "2023",
     },
     {
